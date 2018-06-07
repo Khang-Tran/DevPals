@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const gravatar = require('gravatar');
-const User = require('../../models/Users');
+const Users = require('../../models/Users');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const keys = require('../../config/key');
@@ -18,7 +18,7 @@ router.post('/register', (req, res) => {
         return res.status(400).json(errors);
     }
 
-    User.findOne({email: req.body.email}).then(user => {
+    Users.findOne({email: req.body.email}).then(user => {
         if (user) {
             errors.email = 'Email already existed';
             return res.status(400).json(errors);
@@ -29,7 +29,7 @@ router.post('/register', (req, res) => {
                 r: 'pg',
                 d: 'mm'
             });
-            const newUser = new User({
+            const newUser = new Users({
                 name: req.body.name,
                 email: req.body.email,
                 avatar: avatar,
@@ -59,10 +59,10 @@ router.post('/login', (req, res) => {
     const email = req.body.email;
     const password = req.body.password;
 
-    User.findOne({email})
+    Users.findOne({email})
         .then(user => {
             if (!user) {
-                errors.email = 'User not found';
+                errors.email = 'Users not found';
                 return res.status(404).json(errors);
             }
             bcrypt.compare(password, user.password)
