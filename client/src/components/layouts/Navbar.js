@@ -4,10 +4,12 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 
 import {logoutUser} from '../../actions/authAction';
+import {clearProfile} from '../../actions/profileAction';
 
 class Navbar extends React.Component {
     onLogout = e => {
         e.preventDefault();
+        this.props.clearProfile();
         this.props.logoutUser();
     };
 
@@ -71,4 +73,4 @@ const mapStateToProps = state => ({
 });
 
 
-export default connect(mapStateToProps, {logoutUser})(Navbar);
+export default connect(mapStateToProps, {logoutUser, clearProfile})(Navbar);
