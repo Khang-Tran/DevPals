@@ -7,10 +7,10 @@ import TextFieldGroup from '../commons/TextFieldGroup';
 import SelectListGroup from '../commons/SelectListGroup';
 import TextAreaFieldGroup from '../commons/TextAreaFieldGroup';
 import InputGroup from '../commons/InputGroup';
+import isEmpty from '../../validations/isEmpty';
+import {createProfile, getCurrentProfile} from '../../actions/profileAction';
 
-import {createProfile} from '../../actions/profileAction';
-
-class CreateProfile extends React.Component {
+class EditProfile extends React.Component {
     state = {
         displaySocialInputs: false,
         handle: '',
@@ -55,6 +55,42 @@ class CreateProfile extends React.Component {
         if (nextProps.errors) {
             this.setState({errors: nextProps.errors});
         }
+
+        if (nextProps.profile.profile) {
+            const profile = nextProps.profile.profile;
+
+            const skillsCSV = profile.skills.join(',');
+
+            // TODO: Refactor this
+            profile.company = !isEmpty(profile.company) ? profile.company : '';
+            profile.website = !isEmpty(profile.website) ? profile.website : '';
+            profile.location = !isEmpty(profile.location) ? profile.location : '';
+            profile.githubUserName = !isEmpty(profile.githubUserName) ? profile.githubUserName : '';
+            profile.bio = !isEmpty(profile.bio) ? profile.bio : '';
+            profile.social = !isEmpty(profile.social) ? profile.social : {};
+            profile.Facebook = !isEmpty(profile.social.Facebook) ? profile.social.Facebook : '';
+            profile.Google = !isEmpty(profile.social.Google) ? profile.social.Google : '';
+            profile.Linkedin = !isEmpty(profile.social.Linkedin) ? profile.social.Linkedin : '';
+
+            this.setState({
+                handle: profile.handle,
+                company: profile.company,
+                website: profile.website,
+                location: profile.location,
+                status: profile.status,
+                skills: skillsCSV,
+                githubUserName: profile.githubUserName,
+                bio: profile.bio,
+                Facebook: profile.Facebook,
+                Google: profile.Google,
+                Linkedin: profile.Linkedin
+            });
+        }
+
+    };
+
+    componentDidMount = () => {
+        this.props.getCurrentProfile();
     };
 
     render() {
@@ -97,10 +133,7 @@ class CreateProfile extends React.Component {
                             <Link to='/dashboard' className='btn btn-light'>
                                 Go Back
                             </Link>
-                            <h1 className='display-4 text-center'>Create Your Profile</h1>
-                            <p className='lead text-center'>
-                                {`Let's get some information to make your profile stand out`}
-                            </p>
+                            <h1 className='display-4 text-center'>Edit Your Profile</h1>
                             <small className='d-block pb-3'>* = required field</small>
                             <form onSubmit={this.onSubmit}>
                                 <TextFieldGroup name='handle' value={this.state.handle} onChange={this.onChange}
@@ -158,9 +191,11 @@ class CreateProfile extends React.Component {
     }
 }
 
-CreateProfile.propTypes = {
+EditProfile.propTypes = {
     profile: PropTypes.object.isRequired,
-    errors: PropTypes.object.isRequired
+    errors: PropTypes.object.isRequired,
+    createProfile: PropTypes.func.isRequired,
+    getCurrentProfile: PropTypes.func.isRequired
 };
 
 const mapStateToProps = state => ({
@@ -168,4 +203,4 @@ const mapStateToProps = state => ({
     errors: state.errors
 });
 
-export default connect(mapStateToProps, {createProfile})(withRouter(CreateProfile));
+export default connect(mapStateToProps, {createProfile, getCurrentProfile})(withRouter(EditProfile));
