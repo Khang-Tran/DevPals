@@ -6,6 +6,8 @@ import {Link} from 'react-router-dom';
 
 import Spinner from '../commons/Spinner';
 import ProfileAction from './ProfileAction';
+import Experience from './Experience';
+import Education from './Education';
 
 class Dashboard extends React.Component {
     componentDidMount = () => {
@@ -31,7 +33,8 @@ class Dashboard extends React.Component {
                     <p className='lead text-muted'> Welcome <Link to={`/profiles/${profile.handle}`}>{user.name}</Link>
                     </p>
                     <ProfileAction/>
-
+                    <Experience experience={profile.experience}/>
+                    <Education education={profile.education}/>
                     <div style={{marginBottom: '60px'}}>
                         <button onClick={this.onDelete} className='btn btn-danger'>Delete My Account</button>
                     </div>
