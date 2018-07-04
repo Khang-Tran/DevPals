@@ -30,7 +30,7 @@ class Dashboard extends React.Component {
         else {
             if (Object.keys(profile).length > 0) {
                 dashboardContent = <div>
-                    <p className='lead text-muted'> Welcome <Link to={`/profiles/${profile.handle}`}>{user.name}</Link>
+                    <p className='lead text-muted'> Welcome <Link to={`/profile/${profile.handle}`}>{user.name}</Link>
                     </p>
                     <ProfileAction/>
                     <Experience experience={profile.experience}/>
