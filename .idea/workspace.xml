@@ -1,15 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="352c96dd-ce31-4871-a39d-4caf97c0547b" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/config/keys_dev.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/config/keys_prod.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/key.js" beforeDir="false" afterPath="$PROJECT_DIR$/config/key.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/server.js" afterDir="false" />
-    </list>
+    <list default="true" id="352c96dd-ce31-4871-a39d-4caf97c0547b" name="Default" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -161,12 +153,6 @@
             <path>
               <item name="DevPals" type="b2602c69:ProjectViewProjectNode" />
               <item name="DevPals" type="462c0819:PsiDirectoryNode" />
-              <item name="client" type="462c0819:PsiDirectoryNode" />
-              <item name="build" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="DevPals" type="b2602c69:ProjectViewProjectNode" />
-              <item name="DevPals" type="462c0819:PsiDirectoryNode" />
               <item name="config" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
@@ -261,10 +247,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1519" height="977" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Designer" order="2" />
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.6321037" weight="0.17607974" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6321037" visible="true" weight="0.17607974" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32901296" />
       <window_info anchor="right" id="Palette&#9;" order="0" />
       <window_info anchor="bottom" auto_hide="true" id="Event Log" order="0" sideWeight="0.32093024" side_tool="true" type="SLIDING" weight="0.6698337" />
