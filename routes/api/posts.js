@@ -5,6 +5,7 @@ const passport = require('passport');
 const Post = require('../../models/Post');
 const Profile = require('../../models/Profiles');
 const validatePostInput = require('../../validations/post');
+
 router.post('/', passport.authenticate('jwt', {session: false}), (req, res) => {
     const {errors, isValid} = validatePostInput(req.body);
     if (!isValid) {

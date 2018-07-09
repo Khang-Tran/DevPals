@@ -35,7 +35,6 @@ class EditProfile extends React.Component {
 
         // TODO: Refactor this
         const profileData = {
-            handle: this.state.handle,
             company: this.state.company,
             website: this.state.website,
             location: this.state.location,
@@ -136,7 +135,8 @@ class EditProfile extends React.Component {
                             <h1 className='display-4 text-center'>Edit Your Profile</h1>
                             <small className='d-block pb-3'>* = required field</small>
                             <form onSubmit={this.onSubmit}>
-                                <TextFieldGroup name='handle' value={this.state.handle} onChange={this.onChange}
+                                <TextFieldGroup disabled={true} name='handle' value={this.state.handle}
+                                                onChange={this.onChange}
                                                 placeholder='* Profile handle' error={errors.handle}
                                                 info={`A unique handle for your profile URL. Your
                                                        full name, company name, nickname, etc (This CAN' T be changed later)`}/>

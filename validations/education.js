@@ -1,26 +1,18 @@
 const validator = require('validator');
 
+const validateInput = require('./validateInputs');
 const isEmpty = require('./isEmpty');
 
 const validateEducationInput = data => {
     let errors = {};
 
-    // TODO: refactor this
-    data.school = !isEmpty(data.school)
-        ? data.school
-        : '';
+    data.school = validateInput(data.school);
 
-    data.degree = !isEmpty(data.degree)
-        ? data.degree
-        : '';
+    data.degree = validateInput(data.degree)
 
-    data.fieldOfStudy = !isEmpty(data.fieldOfStudy)
-        ? data.fieldOfStudy
-        : '';
+    data.fieldOfStudy = validateInput(data.fieldOfStudy);
 
-    data.from = !isEmpty(data.from)
-        ? data.from
-        : '';
+    data.from = validateInput(data.from)
 
 
     if (validator.isEmpty(data.school)) {

@@ -1,21 +1,16 @@
 const validator = require('validator');
 
 const isEmpty = require('./isEmpty');
+const validateInput = require('./validateInputs');
 
 const validateProfileInput = data => {
     let errors = {};
 
-    // TODO: refactor this
-    data.handle = !isEmpty(data.handle)
-        ? data.handle
-        : '';
+    data.handle = validateInput(data.handle);
 
-    data.status = !isEmpty(data.status)
-        ? data.status
-        : '';
-    data.skills = !isEmpty(data.skills)
-        ? data.skills
-        : '';
+    data.status = validateInput(data.status);
+
+    data.skills = validateInput(data.skills);
 
 
     if (!validator.isLength(data.handle, {min: 2, max: 40})) {

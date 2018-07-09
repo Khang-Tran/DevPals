@@ -1,22 +1,16 @@
 const validator = require('validator');
 
+const validateInput = require('./validateInputs');
 const isEmpty = require('./isEmpty');
 
 const validateExperienceInput = data => {
     let errors = {};
 
-    // TODO: refactor this
-    data.title = !isEmpty(data.title)
-        ? data.title
-        : '';
+    data.title = validateInput(data.title);
 
-    data.company = !isEmpty(data.company)
-        ? data.company
-        : '';
+    data.company = validateInput(data.company);
 
-    data.from = !isEmpty(data.from)
-        ? data.from
-        : '';
+    data.from = validateInput(data.from)
 
 
     if (validator.isEmpty(data.title)) {
